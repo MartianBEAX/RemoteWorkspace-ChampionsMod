@@ -1,0 +1,7 @@
+{
+  "parent": "champions_mod:custom/mjolnirshard",
+  "textures": {
+    "0": "champions_mod:blocks/mjolnir",
+    "particle": "champions_mod:items/mjolnirshardicon"
+  }
+}

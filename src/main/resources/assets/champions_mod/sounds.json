@@ -1,0 +1,22 @@
+{
+  "mjolnir_throw": {
+    "category": "neutral",
+    "subtitle": "subtitles.mjolnir_throw",
+    "sounds": [
+      {
+        "name": "champions_mod:mjolnir_throw",
+        "stream": false
+      }
+    ]
+  },
+  "mjonir_return": {
+    "category": "neutral",
+    "subtitle": "subtitles.mjonir_return",
+    "sounds": [
+      {
+        "name": "champions_mod:mjonir_return",
+        "stream": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,276 @@
+{
+  "mod_elements": [
+    {
+      "name": "BrokenMjolnirProjectile",
+      "type": "rangeditem",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "broken_mjolnir_projectile",
+      "path": "~/Thor"
+    },
+    {
+      "name": "ThorEffectStart",
+      "type": "procedure",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "thor_effect_start",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Thor"
+    },
+    {
+      "name": "Thor",
+      "type": "potioneffect",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "thor",
+      "path": "~/Thor"
+    },
+    {
+      "name": "ThorEffectEnds",
+      "type": "procedure",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "thor_effect_ends",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Thor"
+    },
+    {
+      "name": "BrokenMjolnirRightclick",
+      "type": "procedure",
+      "sortid": 10,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "broken_mjolnir_rightclick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Thor"
+    },
+    {
+      "name": "BrokenMjolnirInInventory",
+      "type": "procedure",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "broken_mjolnir_in_inventory",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Thor"
+    },
+    {
+      "name": "BrokenMjolnirProjectileTick",
+      "type": "procedure",
+      "sortid": 15,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "broken_mjolnir_projectile_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Thor"
+    },
+    {
+      "name": "BrokenMjolnirProjectileHit",
+      "type": "procedure",
+      "sortid": 16,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "broken_mjolnir_projectile_hit",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Thor"
+    },
+    {
+      "name": "BrokenMjolnirEntityIsHit",
+      "type": "procedure",
+      "sortid": 17,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "broken_mjolnir_entity_is_hit",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Thor"
+    },
+    {
+      "name": "BrokenMjolnir",
+      "type": "tool",
+      "sortid": 19,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "broken_mjolnir",
+      "path": "~/Thor"
+    },
+    {
+      "name": "MjolnirShard",
+      "type": "rangeditem",
+      "sortid": 20,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mjolnir_shard",
+      "path": "~/Thor"
+    },
+    {
+      "name": "MjolnirShardProjectileTick",
+      "type": "procedure",
+      "sortid": 21,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mjolnir_shard_projectile_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Thor"
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [
+    {
+      "name": "mjolnir_throw",
+      "files": [
+        "mjolnir_throw"
+      ],
+      "category": "neutral",
+      "subtitle": "Mjolnir"
+    },
+    {
+      "name": "mjonir_return",
+      "files": [
+        "mjonir_return"
+      ],
+      "category": "neutral",
+      "subtitle": "Mjolnir"
+    }
+  ],
+  "language_map": {
+    "en_us": {
+      "item.champions_mod.mjolnir_shard": "Mjolnir Shard",
+      "item.champions_mod.broken_mjolnir": "Broken Mjolnir",
+      "effect.thor": "Thor",
+      "subtitles.mjonir_return": "Mjolnir",
+      "subtitles.mjolnir_throw": "Mjolnir",
+      "item.champions_mod.broken_mjolnir_projectile": "Broken Mjolnir"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "Thor",
+        "children": []
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "champions_mod",
+    "modName": "Champion\u0027s Mod",
+    "version": "1.0.0",
+    "author": "Kik0b, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Academic Free License v3.0",
+    "disableForgeVersionCheck": true,
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.16.5",
+    "modElementsPackage": "net.mcreator.championsmod",
+    "lockBaseModFiles": false
+  },
+  "mcreatorVersion": 202200120510
+}
