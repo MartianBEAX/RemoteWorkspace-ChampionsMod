@@ -3,7 +3,7 @@
   "_type": "potioneffect",
   "definition": {
     "effectName": "Thor",
-    "icon": "thor_icon.png",
+    "icon": "thor_helmet.png",
     "color": {
       "value": -16724788,
       "falpha": 0.0

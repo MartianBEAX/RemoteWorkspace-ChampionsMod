@@ -23,7 +23,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.network.IPacket;
 import net.minecraft.item.UseAction;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
@@ -75,7 +74,7 @@ public class BrokenMjolnirProjectileItem extends ChampionsModModElements.ModElem
 
 	public static class ItemRanged extends Item {
 		public ItemRanged() {
-			super(new Item.Properties().group(ItemGroup.COMBAT).maxDamage(10483));
+			super(new Item.Properties().group(null).maxDamage(10483));
 			setRegistryName("broken_mjolnir_projectile");
 		}
 
