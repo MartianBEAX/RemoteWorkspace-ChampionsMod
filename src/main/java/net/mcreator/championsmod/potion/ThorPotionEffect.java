@@ -33,7 +33,7 @@ public class ThorPotionEffect {
 
 	public static class EffectCustom extends Effect {
 		public EffectCustom() {
-			super(EffectType.BENEFICIAL, -16724788);
+			super(EffectType.BENEFICIAL, -16718616);
 			setRegistryName("thor");
 		}
 
