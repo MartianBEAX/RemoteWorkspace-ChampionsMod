@@ -19,15 +19,15 @@
     "shootConstantly": false,
     "usageCount": 0,
     "actionSound": {
-      "value": "entity.arrow.shoot"
+      "value": "CUSTOM:shot"
     },
     "hasGlow": false,
     "animation": "bow",
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "bulletPower": 1.75,
-    "bulletDamage": 5.5,
-    "bulletKnockback": 2,
+    "bulletDamage": 6.0,
+    "bulletKnockback": 1,
     "bulletParticles": false,
     "bulletIgnitesFire": false,
     "bulletItemTexture": {

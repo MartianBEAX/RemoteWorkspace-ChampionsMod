@@ -3,7 +3,7 @@
   "_type": "item",
   "definition": {
     "renderType": 1,
-    "texture": "mjolniricon",
+    "texture": "gun_icon",
     "customModelName": "gun:default",
     "name": "Gun",
     "rarity": "RARE",
@@ -25,7 +25,7 @@
     "enableMeleeDamage": true,
     "damageVsEntity": 3.0,
     "specialInfo": [
-      "\"I got a gun\" -Lil Jimmy"
+      "\"I got a gun\" -Lil' Jimmy."
     ],
     "hasGlow": false,
     "guiBoundTo": "<NONE>",
