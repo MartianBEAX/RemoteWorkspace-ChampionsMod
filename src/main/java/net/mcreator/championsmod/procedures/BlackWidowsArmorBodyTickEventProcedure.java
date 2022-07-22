@@ -25,10 +25,13 @@ public class BlackWidowsArmorBodyTickEventProcedure {
 				.getItem() == BlackWidowsArmorItem.boots) {
 			if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS) : ItemStack.EMPTY)
 					.getItem() == BlackWidowsArmorItem.legs) {
-				if (entity instanceof LivingEntity)
-					((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SPEED, (int) 10, (int) 0, (false), (false)));
-				if (entity instanceof LivingEntity)
-					((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, (int) 10, (int) 0, (false), (false)));
+				if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.CHEST) : ItemStack.EMPTY)
+						.getItem() == BlackWidowsArmorItem.body) {
+					if (entity instanceof LivingEntity)
+						((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SPEED, (int) 100, (int) 0, (false), (false)));
+					if (entity instanceof LivingEntity)
+						((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, (int) 100, (int) 0, (false), (false)));
+				}
 			}
 		}
 	}

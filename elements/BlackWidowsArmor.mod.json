@@ -10,9 +10,6 @@
     "textureLeggings": "blackwidows_leggings",
     "enableBoots": true,
     "textureBoots": "blackwidows_boots",
-    "onBodyTick": {
-      "name": "BlackWidowsArmorBodyTickEvent"
-    },
     "creativeTab": {
       "value": "COMBAT"
     },

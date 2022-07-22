@@ -1,0 +1,42 @@
+{
+  "_fv": 28,
+  "_type": "rangeditem",
+  "definition": {
+    "renderType": 0,
+    "texture": "bullet_icon",
+    "customModelName": "Normal",
+    "name": "Bullet",
+    "specialInfo": [
+      "\"ouch\""
+    ],
+    "creativeTab": {
+      "value": "COMBAT"
+    },
+    "stackSize": 64,
+    "ammoItem": {
+      "value": "CUSTOM:Bullet"
+    },
+    "shootConstantly": false,
+    "usageCount": 0,
+    "actionSound": {
+      "value": "entity.arrow.shoot"
+    },
+    "hasGlow": false,
+    "animation": "bow",
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "bulletPower": 1.5,
+    "bulletDamage": 7.0,
+    "bulletKnockback": 2,
+    "bulletParticles": false,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": "CUSTOM:Bullet"
+    },
+    "bulletModel": "ModelBullet",
+    "customBulletModelTexture": "bullet.png",
+    "onBulletFlyingTick": {
+      "name": "BulletTick"
+    }
+  }
+}

@@ -247,6 +247,66 @@
         ]
       },
       "path": "~/Avengers/Black Widow"
+    },
+    {
+      "name": "Bullet",
+      "type": "rangeditem",
+      "sortid": 24,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bullet",
+      "path": "~/Avengers/Black Widow"
+    },
+    {
+      "name": "BulletTick",
+      "type": "procedure",
+      "sortid": 25,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bullet_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Avengers/Black Widow"
+    },
+    {
+      "name": "GunRightclicked",
+      "type": "procedure",
+      "sortid": 26,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gun_rightclicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Avengers/Black Widow"
+    },
+    {
+      "name": "Gun",
+      "type": "item",
+      "sortid": 26,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gun",
+      "path": "~/Avengers/Black Widow"
     }
   ],
   "variable_elements": [],
@@ -270,16 +330,18 @@
   ],
   "language_map": {
     "en_us": {
+      "item.champions_mod.gun": "Gun",
+      "effect.thor": "Thor",
+      "subtitles.mjolnir_throw": "Mjolnir is Thrown",
       "item.champions_mod.black_widows_armor_helmet": "BlackWidows Helmet",
       "item.champions_mod.mjolnir_shard": "Mjolnir Shard",
       "item.champions_mod.broken_mjolnir": "Broken Mjolnir",
-      "effect.thor": "Thor",
       "item.champions_mod.black_widows_armor_chestplate": "Black Widow\u0027s Chestplate",
       "item.champions_mod.black_widows_armor_boots": "Black Widow\u0027s Boots",
       "subtitles.mjonir_return": "Mjolnir Returns",
       "item.champions_mod.black_widows_armor_leggings": "Black Widow\u0027s Leggings",
-      "subtitles.mjolnir_throw": "Mjolnir is Thrown",
-      "item.champions_mod.broken_mjolnir_projectile": "Broken Mjolnir"
+      "item.champions_mod.broken_mjolnir_projectile": "Broken Mjolnir",
+      "item.champions_mod.bullet": "Bullet"
     }
   },
   "foldersRoot": {
@@ -314,6 +376,7 @@
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "forge-1.16.5",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.championsmod",
     "lockBaseModFiles": false
   },

@@ -1,0 +1,10 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "1": "widows_pistol"
+      },
+      "name": "default"
+    }
+  }
+}

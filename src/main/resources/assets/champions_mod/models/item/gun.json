@@ -1,0 +1,7 @@
+{
+  "parent": "champions_mod:custom/gun",
+  "textures": {
+    "1": "champions_mod:blocks/widows_pistol",
+    "particle": "champions_mod:items/mjolniricon"
+  }
+}
