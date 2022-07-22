@@ -230,6 +230,23 @@
         "ec": true
       },
       "path": "~/Avengers/Black Widow"
+    },
+    {
+      "name": "BlackWidowsArmorBodyTickEvent",
+      "type": "procedure",
+      "sortid": 23,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "black_widows_armor_body_tick_event",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Avengers/Black Widow"
     }
   ],
   "variable_elements": [],
