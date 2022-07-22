@@ -1,8 +1,12 @@
 {
+  "item.champions_mod.black_widows_armor_helmet": "BlackWidows Helmet",
   "item.champions_mod.mjolnir_shard": "Mjolnir Shard",
   "item.champions_mod.broken_mjolnir": "Broken Mjolnir",
   "effect.thor": "Thor",
+  "item.champions_mod.black_widows_armor_chestplate": "Black Widow\u0027s Chestplate",
+  "item.champions_mod.black_widows_armor_boots": "Black Widow\u0027s Boots",
   "subtitles.mjonir_return": "Mjolnir Returns",
+  "item.champions_mod.black_widows_armor_leggings": "Black Widow\u0027s Leggings",
   "subtitles.mjolnir_throw": "Mjolnir is Thrown",
   "item.champions_mod.broken_mjolnir_projectile": "Broken Mjolnir"
 }

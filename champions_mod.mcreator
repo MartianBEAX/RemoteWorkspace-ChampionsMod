@@ -7,7 +7,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "broken_mjolnir_projectile",
-      "path": "~/Thor"
+      "path": "~/Avengers/Thor"
     },
     {
       "name": "ThorEffectStart",
@@ -24,7 +24,7 @@
           }
         ]
       },
-      "path": "~/Thor"
+      "path": "~/Avengers/Thor"
     },
     {
       "name": "Thor",
@@ -33,7 +33,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "thor",
-      "path": "~/Thor"
+      "path": "~/Avengers/Thor"
     },
     {
       "name": "ThorEffectEnds",
@@ -54,7 +54,7 @@
           }
         ]
       },
-      "path": "~/Thor"
+      "path": "~/Avengers/Thor"
     },
     {
       "name": "BrokenMjolnirRightclick",
@@ -75,7 +75,7 @@
           }
         ]
       },
-      "path": "~/Thor"
+      "path": "~/Avengers/Thor"
     },
     {
       "name": "BrokenMjolnirInInventory",
@@ -100,7 +100,7 @@
           }
         ]
       },
-      "path": "~/Thor"
+      "path": "~/Avengers/Thor"
     },
     {
       "name": "BrokenMjolnirProjectileTick",
@@ -121,7 +121,7 @@
           }
         ]
       },
-      "path": "~/Thor"
+      "path": "~/Avengers/Thor"
     },
     {
       "name": "BrokenMjolnirProjectileHit",
@@ -150,7 +150,7 @@
           }
         ]
       },
-      "path": "~/Thor"
+      "path": "~/Avengers/Thor"
     },
     {
       "name": "BrokenMjolnirEntityIsHit",
@@ -175,7 +175,7 @@
           }
         ]
       },
-      "path": "~/Thor"
+      "path": "~/Avengers/Thor"
     },
     {
       "name": "BrokenMjolnir",
@@ -184,7 +184,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "broken_mjolnir",
-      "path": "~/Thor"
+      "path": "~/Avengers/Thor"
     },
     {
       "name": "MjolnirShard",
@@ -193,7 +193,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "mjolnir_shard",
-      "path": "~/Thor"
+      "path": "~/Avengers/Thor"
     },
     {
       "name": "MjolnirShardProjectileTick",
@@ -214,7 +214,22 @@
           }
         ]
       },
-      "path": "~/Thor"
+      "path": "~/Avengers/Thor"
+    },
+    {
+      "name": "BlackWidowsArmor",
+      "type": "armor",
+      "sortid": 22,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "black_widows_armor",
+      "metadata": {
+        "eh": false,
+        "el": true,
+        "eb": true,
+        "ec": true
+      },
+      "path": "~/Avengers/Black Widow"
     }
   ],
   "variable_elements": [],
@@ -238,10 +253,14 @@
   ],
   "language_map": {
     "en_us": {
+      "item.champions_mod.black_widows_armor_helmet": "BlackWidows Helmet",
       "item.champions_mod.mjolnir_shard": "Mjolnir Shard",
       "item.champions_mod.broken_mjolnir": "Broken Mjolnir",
       "effect.thor": "Thor",
+      "item.champions_mod.black_widows_armor_chestplate": "Black Widow\u0027s Chestplate",
+      "item.champions_mod.black_widows_armor_boots": "Black Widow\u0027s Boots",
       "subtitles.mjonir_return": "Mjolnir Returns",
+      "item.champions_mod.black_widows_armor_leggings": "Black Widow\u0027s Leggings",
       "subtitles.mjolnir_throw": "Mjolnir is Thrown",
       "item.champions_mod.broken_mjolnir_projectile": "Broken Mjolnir"
     }
@@ -250,8 +269,17 @@
     "name": "~",
     "children": [
       {
-        "name": "Thor",
-        "children": []
+        "name": "Avengers",
+        "children": [
+          {
+            "name": "Black Widow",
+            "children": []
+          },
+          {
+            "name": "Thor",
+            "children": []
+          }
+        ]
       }
     ]
   },
