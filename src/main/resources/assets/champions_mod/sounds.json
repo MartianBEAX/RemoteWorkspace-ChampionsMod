@@ -18,5 +18,14 @@
         "stream": false
       }
     ]
+  },
+  "shot": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "champions_mod:1911-.45-acp-close-single-gunshot-b-www.fesliyanstudios.com",
+        "stream": false
+      }
+    ]
   }
 }

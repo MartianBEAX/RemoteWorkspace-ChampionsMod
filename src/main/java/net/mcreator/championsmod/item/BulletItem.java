@@ -22,7 +22,6 @@ import net.minecraft.network.IPacket;
 import net.minecraft.item.UseAction;
 import net.minecraft.item.ShootableItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -66,7 +65,7 @@ public class BulletItem extends ChampionsModModElements.ModElement {
 
 	public static class ItemRanged extends Item {
 		public ItemRanged() {
-			super(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(64));
+			super(new Item.Properties().group(null).maxStackSize(64));
 			setRegistryName("bullet");
 		}
 
@@ -111,7 +110,7 @@ public class BulletItem extends ChampionsModModElements.ModElement {
 						}
 					}
 					if (entity.abilities.isCreativeMode || stack != ItemStack.EMPTY) {
-						ArrowCustomEntity entityarrow = shoot(world, entity, random, 1.5f, 7, 2);
+						ArrowCustomEntity entityarrow = shoot(world, entity, random, 1.75f, 5.5, 2);
 						itemstack.damageItem(1, entity, e -> e.sendBreakAnimation(entity.getActiveHand()));
 						if (entity.abilities.isCreativeMode) {
 							entityarrow.pickupStatus = AbstractArrowEntity.PickupStatus.CREATIVE_ONLY;
@@ -216,9 +215,9 @@ public class BulletItem extends ChampionsModModElements.ModElement {
 		double d0 = target.getPosY() + (double) target.getEyeHeight() - 1.1;
 		double d1 = target.getPosX() - entity.getPosX();
 		double d3 = target.getPosZ() - entity.getPosZ();
-		entityarrow.shoot(d1, d0 - entityarrow.getPosY() + (double) MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F, d3, 1.5f * 2, 12.0F);
+		entityarrow.shoot(d1, d0 - entityarrow.getPosY() + (double) MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F, d3, 1.75f * 2, 12.0F);
 		entityarrow.setSilent(true);
-		entityarrow.setDamage(7);
+		entityarrow.setDamage(5.5);
 		entityarrow.setKnockbackStrength(2);
 		entityarrow.setIsCritical(false);
 		entity.world.addEntity(entityarrow);

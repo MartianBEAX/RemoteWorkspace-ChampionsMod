@@ -292,6 +292,22 @@
             "type": "entity"
           },
           {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
             "name": "world",
             "type": "world"
           }
@@ -326,6 +342,14 @@
       ],
       "category": "neutral",
       "subtitle": "Mjolnir"
+    },
+    {
+      "name": "shot",
+      "files": [
+        "1911-.45-acp-close-single-gunshot-b-www.fesliyanstudios.com"
+      ],
+      "category": "neutral",
+      "subtitle": ""
     }
   ],
   "language_map": {
@@ -339,6 +363,7 @@
       "item.champions_mod.black_widows_armor_chestplate": "Black Widow\u0027s Chestplate",
       "item.champions_mod.black_widows_armor_boots": "Black Widow\u0027s Boots",
       "subtitles.mjonir_return": "Mjolnir Returns",
+      "subtitles.shot": "",
       "item.champions_mod.black_widows_armor_leggings": "Black Widow\u0027s Leggings",
       "item.champions_mod.broken_mjolnir_projectile": "Broken Mjolnir",
       "item.champions_mod.bullet": "Bullet"
