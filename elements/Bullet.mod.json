@@ -26,7 +26,7 @@
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "bulletPower": 1.75,
-    "bulletDamage": 6.0,
+    "bulletDamage": 5.0,
     "bulletKnockback": 1,
     "bulletParticles": false,
     "bulletIgnitesFire": false,

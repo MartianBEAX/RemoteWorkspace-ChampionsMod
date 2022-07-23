@@ -57,7 +57,7 @@ public class GunRightclickedProcedure {
 			if (entity instanceof LivingEntity) {
 				LivingEntity _ent = (LivingEntity) entity;
 				if (!_ent.world.isRemote()) {
-					BulletItem.shoot(_ent.world, _ent, new Random(), (float) 1.75, 6, 1);
+					BulletItem.shoot(_ent.world, _ent, new Random(), (float) 1.75, 5, 1);
 				}
 			}
 			if (entity instanceof PlayerEntity)
@@ -111,7 +111,7 @@ public class GunRightclickedProcedure {
 						if (entity instanceof LivingEntity) {
 							LivingEntity _ent = (LivingEntity) entity;
 							if (!_ent.world.isRemote()) {
-								BulletItem.shoot(_ent.world, _ent, new Random(), (float) 1.75, 6, 1);
+								BulletItem.shoot(_ent.world, _ent, new Random(), (float) 1.75, 5, 1);
 							}
 						}
 					}
@@ -139,7 +139,7 @@ public class GunRightclickedProcedure {
 				if (entity instanceof LivingEntity) {
 					LivingEntity _ent = (LivingEntity) entity;
 					if (!_ent.world.isRemote()) {
-						BulletItem.shoot(_ent.world, _ent, new Random(), (float) 1.75, 6, 1);
+						BulletItem.shoot(_ent.world, _ent, new Random(), (float) 1.75, 5, 1);
 					}
 				}
 				if (entity instanceof PlayerEntity)
@@ -166,7 +166,7 @@ public class GunRightclickedProcedure {
 				if (entity instanceof LivingEntity) {
 					LivingEntity _ent = (LivingEntity) entity;
 					if (!_ent.world.isRemote()) {
-						BulletItem.shoot(_ent.world, _ent, new Random(), (float) 1.75, 6, 1);
+						BulletItem.shoot(_ent.world, _ent, new Random(), (float) 1.75, 5, 1);
 					}
 				}
 				if (entity instanceof PlayerEntity)

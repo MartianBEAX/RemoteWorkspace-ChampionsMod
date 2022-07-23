@@ -110,7 +110,7 @@ public class BulletItem extends ChampionsModModElements.ModElement {
 						}
 					}
 					if (entity.abilities.isCreativeMode || stack != ItemStack.EMPTY) {
-						ArrowCustomEntity entityarrow = shoot(world, entity, random, 1.75f, 6, 1);
+						ArrowCustomEntity entityarrow = shoot(world, entity, random, 1.75f, 5, 1);
 						itemstack.damageItem(1, entity, e -> e.sendBreakAnimation(entity.getActiveHand()));
 						if (entity.abilities.isCreativeMode) {
 							entityarrow.pickupStatus = AbstractArrowEntity.PickupStatus.CREATIVE_ONLY;
@@ -217,7 +217,7 @@ public class BulletItem extends ChampionsModModElements.ModElement {
 		double d3 = target.getPosZ() - entity.getPosZ();
 		entityarrow.shoot(d1, d0 - entityarrow.getPosY() + (double) MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F, d3, 1.75f * 2, 12.0F);
 		entityarrow.setSilent(true);
-		entityarrow.setDamage(6);
+		entityarrow.setDamage(5);
 		entityarrow.setKnockbackStrength(1);
 		entityarrow.setIsCritical(false);
 		entity.world.addEntity(entityarrow);
