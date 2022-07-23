@@ -15,6 +15,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
 import net.mcreator.championsmod.potion.ThorPotionEffect;
+import net.mcreator.championsmod.item.StormBreakerItem;
 import net.mcreator.championsmod.item.BrokenMjolnirItem;
 import net.mcreator.championsmod.ChampionsModMod;
 
@@ -70,7 +71,11 @@ public class BrokenMjolnirInInventoryProcedure {
 		}
 		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem() == BrokenMjolnirItem.block
 				|| ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
-						.getItem() == BrokenMjolnirItem.block) {
+						.getItem() == BrokenMjolnirItem.block
+				|| ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+						.getItem() == StormBreakerItem.block
+				|| ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
+						.getItem() == StormBreakerItem.block) {
 			if (entity instanceof LivingEntity)
 				((LivingEntity) entity).addPotionEffect(new EffectInstance(ThorPotionEffect.potion, (int) 1200, (int) 0, (false), (true)));
 			if (entity instanceof LivingEntity)

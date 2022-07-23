@@ -23,7 +23,7 @@
     "actionSound": {
       "value": "CUSTOM:mjolnir_throw"
     },
-    "hasGlow": false,
+    "hasGlow": true,
     "animation": "bow",
     "enableMeleeDamage": true,
     "damageVsEntity": 9.0,

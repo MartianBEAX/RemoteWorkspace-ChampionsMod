@@ -1,35 +1,26 @@
 {
-  "mjolnir_throw": {
-    "category": "neutral",
-    "subtitle": "subtitles.mjolnir_throw",
+  "storm_breaker_throw": {
+    "category": "master",
+    "subtitle": "subtitles.storm_breaker_throw",
     "sounds": [
       {
-        "name": "champions_mod:mjolnir_throw",
+        "name": "champions_mod:storm_breaker_throw",
         "stream": false
       }
     ]
   },
-  "mjonir_return": {
-    "category": "neutral",
-    "subtitle": "subtitles.mjonir_return",
+  "mjolnir_shards_return": {
+    "category": "master",
+    "subtitle": "subtitles.mjolnir_shards_return",
     "sounds": [
       {
-        "name": "champions_mod:mjonir_return",
-        "stream": false
-      }
-    ]
-  },
-  "shot": {
-    "category": "neutral",
-    "sounds": [
-      {
-        "name": "champions_mod:1911-.45-acp-close-single-gunshot-b-www.fesliyanstudios.com",
+        "name": "champions_mod:mjonir_shards_return",
         "stream": false
       }
     ]
   },
   "mjolnir_shard_throw": {
-    "category": "neutral",
+    "category": "master",
     "subtitle": "subtitles.mjolnir_shard_throw",
     "sounds": [
       {
@@ -38,12 +29,42 @@
       }
     ]
   },
-  "mjolnir_shards_return": {
-    "category": "neutral",
-    "subtitle": "subtitles.mjolnir_shards_return",
+  "storm_breaker_return": {
+    "category": "master",
+    "subtitle": "subtitles.storm_breaker_return",
     "sounds": [
       {
-        "name": "champions_mod:mjonir_shards_return",
+        "name": "champions_mod:storm_breaker_return",
+        "stream": false
+      }
+    ]
+  },
+  "mjonir_return": {
+    "category": "master",
+    "subtitle": "subtitles.mjonir_return",
+    "sounds": [
+      {
+        "name": "champions_mod:mjonir_return",
+        "stream": false
+      }
+    ]
+  },
+  "mjolnir_throw": {
+    "category": "master",
+    "subtitle": "subtitles.mjolnir_throw",
+    "sounds": [
+      {
+        "name": "champions_mod:mjolnir_throw",
+        "stream": false
+      }
+    ]
+  },
+  "shot": {
+    "category": "master",
+    "subtitle": "subtitles.shot",
+    "sounds": [
+      {
+        "name": "champions_mod:1911-.45-acp-close-single-gunshot-b-www.fesliyanstudios.com",
         "stream": false
       }
     ]

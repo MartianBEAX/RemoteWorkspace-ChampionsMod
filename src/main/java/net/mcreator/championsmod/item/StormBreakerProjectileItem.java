@@ -24,13 +24,9 @@ import net.minecraft.network.IPacket;
 import net.minecraft.item.UseAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
-import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.IRendersAsItem;
 import net.minecraft.entity.EntityType;
@@ -38,9 +34,9 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
 import net.minecraft.client.util.ITooltipFlag;
 
-import net.mcreator.championsmod.procedures.BrokenMjolnirProjectileTickProcedure;
-import net.mcreator.championsmod.procedures.BrokenMjolnirProjectileHitProcedure;
-import net.mcreator.championsmod.entity.renderer.BrokenMjolnirProjectileRenderer;
+import net.mcreator.championsmod.procedures.StormBreakerProjectileTickProcedure;
+import net.mcreator.championsmod.procedures.StormBreakerProjectileHitsProcedure;
+import net.mcreator.championsmod.entity.renderer.StormBreakerProjectileRenderer;
 import net.mcreator.championsmod.ChampionsModModElements;
 
 import java.util.stream.Stream;
@@ -50,20 +46,17 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.AbstractMap;
 
-import com.google.common.collect.Multimap;
-import com.google.common.collect.ImmutableMultimap;
-
 @ChampionsModModElements.ModElement.Tag
-public class BrokenMjolnirProjectileItem extends ChampionsModModElements.ModElement {
-	@ObjectHolder("champions_mod:broken_mjolnir_projectile")
+public class StormBreakerProjectileItem extends ChampionsModModElements.ModElement {
+	@ObjectHolder("champions_mod:storm_breaker_projectile")
 	public static final Item block = null;
 	public static final EntityType arrow = (EntityType.Builder.<ArrowCustomEntity>create(ArrowCustomEntity::new, EntityClassification.MISC)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).setCustomClientFactory(ArrowCustomEntity::new)
-			.size(0.5f, 0.5f)).build("projectile_broken_mjolnir_projectile").setRegistryName("projectile_broken_mjolnir_projectile");
+			.size(0.5f, 0.5f)).build("projectile_storm_breaker_projectile").setRegistryName("projectile_storm_breaker_projectile");
 
-	public BrokenMjolnirProjectileItem(ChampionsModModElements instance) {
-		super(instance, 5);
-		FMLJavaModLoadingContext.get().getModEventBus().register(new BrokenMjolnirProjectileRenderer.ModelRegisterHandler());
+	public StormBreakerProjectileItem(ChampionsModModElements instance) {
+		super(instance, 30);
+		FMLJavaModLoadingContext.get().getModEventBus().register(new StormBreakerProjectileRenderer.ModelRegisterHandler());
 	}
 
 	@Override
@@ -74,8 +67,8 @@ public class BrokenMjolnirProjectileItem extends ChampionsModModElements.ModElem
 
 	public static class ItemRanged extends Item {
 		public ItemRanged() {
-			super(new Item.Properties().group(null).maxDamage(10483));
-			setRegistryName("broken_mjolnir_projectile");
+			super(new Item.Properties().group(null).maxDamage(100));
+			setRegistryName("storm_breaker_projectile");
 		}
 
 		@Override
@@ -87,9 +80,10 @@ public class BrokenMjolnirProjectileItem extends ChampionsModModElements.ModElem
 		@Override
 		public void addInformation(ItemStack itemstack, World world, List<ITextComponent> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("\"Whosoever holds this hammer"));
-			list.add(new StringTextComponent("if he be worthy"));
-			list.add(new StringTextComponent("shall possess the power of Thor.\" -Odin"));
+			list.add(new StringTextComponent("\"A king's weapon. Meant to be the greatest in Asgard. In theory"));
+			list.add(new StringTextComponent("it could even summon the Bifrost.\""));
+			list.add(new StringTextComponent("\"Does it have a name?\""));
+			list.add(new StringTextComponent("\"Stormbreaker.\" -Eitri and Thor."));
 		}
 
 		@Override
@@ -109,20 +103,6 @@ public class BrokenMjolnirProjectileItem extends ChampionsModModElements.ModElem
 		}
 
 		@Override
-		public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlotType slot) {
-			if (slot == EquipmentSlotType.MAINHAND) {
-				ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-				builder.putAll(super.getAttributeModifiers(slot));
-				builder.put(Attributes.ATTACK_DAMAGE,
-						new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Ranged item modifier", (double) 7, AttributeModifier.Operation.ADDITION));
-				builder.put(Attributes.ATTACK_SPEED,
-						new AttributeModifier(ATTACK_SPEED_MODIFIER, "Ranged item modifier", -2.4, AttributeModifier.Operation.ADDITION));
-				return builder.build();
-			}
-			return super.getAttributeModifiers(slot);
-		}
-
-		@Override
 		public void onPlayerStoppedUsing(ItemStack itemstack, World world, LivingEntity entityLiving, int timeLeft) {
 			if (!world.isRemote && entityLiving instanceof ServerPlayerEntity) {
 				ServerPlayerEntity entity = (ServerPlayerEntity) entityLiving;
@@ -130,7 +110,7 @@ public class BrokenMjolnirProjectileItem extends ChampionsModModElements.ModElem
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
 				if (true) {
-					ArrowCustomEntity entityarrow = shoot(world, entity, random, 1.25f, 8, 5);
+					ArrowCustomEntity entityarrow = shoot(world, entity, random, 1.5f, 10, 5);
 					itemstack.damageItem(1, entity, e -> e.sendBreakAnimation(entity.getActiveHand()));
 					entityarrow.pickupStatus = AbstractArrowEntity.PickupStatus.DISALLOWED;
 				}
@@ -164,7 +144,7 @@ public class BrokenMjolnirProjectileItem extends ChampionsModModElements.ModElem
 		@Override
 		@OnlyIn(Dist.CLIENT)
 		public ItemStack getItem() {
-			return new ItemStack(BrokenMjolnirProjectileItem.block);
+			return ItemStack.EMPTY;
 		}
 
 		@Override
@@ -189,7 +169,7 @@ public class BrokenMjolnirProjectileItem extends ChampionsModModElements.ModElem
 			double z = this.getPosZ();
 			World world = this.world;
 
-			BrokenMjolnirProjectileHitProcedure.executeProcedure(Stream
+			StormBreakerProjectileHitsProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
 							new AbstractMap.SimpleEntry<>("z", z))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -205,7 +185,7 @@ public class BrokenMjolnirProjectileItem extends ChampionsModModElements.ModElem
 			Entity entity = this.func_234616_v_();
 			Entity immediatesourceentity = this;
 
-			BrokenMjolnirProjectileHitProcedure.executeProcedure(Stream
+			StormBreakerProjectileHitsProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
 							new AbstractMap.SimpleEntry<>("z", z))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -221,12 +201,12 @@ public class BrokenMjolnirProjectileItem extends ChampionsModModElements.ModElem
 			Entity entity = this.func_234616_v_();
 			Entity immediatesourceentity = this;
 
-			BrokenMjolnirProjectileTickProcedure
+			StormBreakerProjectileTickProcedure
 					.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			if (this.inGround) {
 
-				BrokenMjolnirProjectileHitProcedure.executeProcedure(Stream
+				StormBreakerProjectileHitsProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -239,7 +219,7 @@ public class BrokenMjolnirProjectileItem extends ChampionsModModElements.ModElem
 		ArrowCustomEntity entityarrow = new ArrowCustomEntity(arrow, entity, world);
 		entityarrow.shoot(entity.getLook(1).x, entity.getLook(1).y, entity.getLook(1).z, power * 2, 0);
 		entityarrow.setSilent(true);
-		entityarrow.setIsCritical(false);
+		entityarrow.setIsCritical(true);
 		entityarrow.setDamage(damage);
 		entityarrow.setKnockbackStrength(knockback);
 		world.addEntity(entityarrow);
@@ -247,7 +227,7 @@ public class BrokenMjolnirProjectileItem extends ChampionsModModElements.ModElem
 		double y = entity.getPosY();
 		double z = entity.getPosZ();
 		world.playSound((PlayerEntity) null, (double) x, (double) y, (double) z,
-				(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("champions_mod:mjolnir_throw")),
+				(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("champions_mod:storm_breaker_throw")),
 				SoundCategory.PLAYERS, 1, 1f / (random.nextFloat() * 0.5f + 1) + (power / 2));
 		return entityarrow;
 	}
@@ -257,17 +237,17 @@ public class BrokenMjolnirProjectileItem extends ChampionsModModElements.ModElem
 		double d0 = target.getPosY() + (double) target.getEyeHeight() - 1.1;
 		double d1 = target.getPosX() - entity.getPosX();
 		double d3 = target.getPosZ() - entity.getPosZ();
-		entityarrow.shoot(d1, d0 - entityarrow.getPosY() + (double) MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F, d3, 1.25f * 2, 12.0F);
+		entityarrow.shoot(d1, d0 - entityarrow.getPosY() + (double) MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F, d3, 1.5f * 2, 12.0F);
 		entityarrow.setSilent(true);
-		entityarrow.setDamage(8);
+		entityarrow.setDamage(10);
 		entityarrow.setKnockbackStrength(5);
-		entityarrow.setIsCritical(false);
+		entityarrow.setIsCritical(true);
 		entity.world.addEntity(entityarrow);
 		double x = entity.getPosX();
 		double y = entity.getPosY();
 		double z = entity.getPosZ();
 		entity.world.playSound((PlayerEntity) null, (double) x, (double) y, (double) z,
-				(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("champions_mod:mjolnir_throw")),
+				(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("champions_mod:storm_breaker_throw")),
 				SoundCategory.PLAYERS, 1, 1f / (new Random().nextFloat() * 0.5f + 1));
 		return entityarrow;
 	}

@@ -1,0 +1,51 @@
+{
+  "_fv": 28,
+  "_type": "rangeditem",
+  "definition": {
+    "renderType": 1,
+    "texture": "stormbreaker_icon",
+    "customModelName": "stormbreaker:default",
+    "name": "Storm Breaker Projectile",
+    "specialInfo": [
+      "\"A king's weapon. Meant to be the greatest in Asgard. In theory",
+      "it could even summon the Bifrost.\"",
+      "\"Does it have a name?\"",
+      "\"Stormbreaker.\" -Eitri and Thor."
+    ],
+    "creativeTab": {
+      "value": "No creative tab entry"
+    },
+    "stackSize": 1,
+    "ammoItem": {
+      "value": ""
+    },
+    "shootConstantly": false,
+    "usageCount": 100,
+    "actionSound": {
+      "value": "CUSTOM:storm_breaker_throw"
+    },
+    "hasGlow": true,
+    "animation": "bow",
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "bulletPower": 1.5,
+    "bulletDamage": 10.0,
+    "bulletKnockback": 5,
+    "bulletParticles": true,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": ""
+    },
+    "bulletModel": "ModelStormBreaker",
+    "customBulletModelTexture": "stormbreaker_projectile.png",
+    "onBulletHitsBlock": {
+      "name": "StormBreakerProjectileHits"
+    },
+    "onBulletHitsEntity": {
+      "name": "StormBreakerProjectileHits"
+    },
+    "onBulletFlyingTick": {
+      "name": "StormBreakerProjectileTick"
+    }
+  }
+}

@@ -3,26 +3,34 @@
   "_type": "tool",
   "definition": {
     "renderType": 1,
-    "texture": "mjolniricon",
+    "texture": "stormbreaker_icon",
     "customModelName": "stormbreaker:default",
     "name": "Stormbreaker",
-    "specialInfo": [],
+    "specialInfo": [
+      "\"A king's weapon. Meant to be the greatest in Asgard. In theory",
+      "it could even summon the Bifrost.\"",
+      "\"Does it have a name?\"",
+      "\"Stormbreaker.\" -Eitri and Thor."
+    ],
     "creativeTab": {
       "value": "COMBAT"
     },
     "toolType": "Special",
     "harvestLevel": 1,
-    "efficiency": 4.0,
-    "attackSpeed": 0.7000000000000001,
-    "enchantability": 6,
-    "damageVsEntity": 9.5,
-    "usageCount": 0,
+    "efficiency": 5.0,
+    "attackSpeed": 0.7999999999999999,
+    "enchantability": 0,
+    "damageVsEntity": 10.0,
+    "usageCount": 18650,
     "blocksAffected": [],
     "hasGlow": false,
     "repairItems": [],
-    "immuneToFire": false,
+    "immuneToFire": true,
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
+    "onRightClickedInAir": {
+      "name": "StormBreakerRightclick"
+    },
     "onItemInInventoryTick": {
       "name": "BrokenMjolnirInInventory"
     }

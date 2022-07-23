@@ -69,15 +69,15 @@ public class BrokenMjolnirRightclickProcedure {
 						}
 					}
 				}
-				if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-						.getItem() == BrokenMjolnirItem.block) {
-					if (entity instanceof LivingEntity) {
-						((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
-					}
-				} else if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
+				if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
 						.getItem() == BrokenMjolnirItem.block) {
 					if (entity instanceof LivingEntity) {
 						((LivingEntity) entity).swing(Hand.OFF_HAND, true);
+					}
+				} else if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+						.getItem() == BrokenMjolnirItem.block) {
+					if (entity instanceof LivingEntity) {
+						((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 					}
 				}
 				if (entity instanceof LivingEntity) {
@@ -162,12 +162,12 @@ public class BrokenMjolnirRightclickProcedure {
 								((World) world).playSound(null, new BlockPos(entity.getPosX(), entity.getPosY(), entity.getPosZ()),
 										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
 												.getValue(new ResourceLocation("champions_mod:mjonir_return")),
-										SoundCategory.NEUTRAL, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.5, 1)));
+										SoundCategory.MASTER, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.5, 1)));
 							} else {
 								((World) world).playSound((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()),
 										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
 												.getValue(new ResourceLocation("champions_mod:mjonir_return")),
-										SoundCategory.NEUTRAL, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.5, 1)), false);
+										SoundCategory.MASTER, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.5, 1)), false);
 							}
 						} else if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
 								.getItem() == Blocks.AIR.asItem()) {
@@ -182,12 +182,12 @@ public class BrokenMjolnirRightclickProcedure {
 								((World) world).playSound(null, new BlockPos(entity.getPosX(), entity.getPosY(), entity.getPosZ()),
 										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
 												.getValue(new ResourceLocation("champions_mod:mjonir_return")),
-										SoundCategory.NEUTRAL, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.5, 1)));
+										SoundCategory.MASTER, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.5, 1)));
 							} else {
 								((World) world).playSound((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()),
 										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
 												.getValue(new ResourceLocation("champions_mod:mjonir_return")),
-										SoundCategory.NEUTRAL, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.5, 1)), false);
+										SoundCategory.MASTER, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.5, 1)), false);
 							}
 						} else {
 							if (entity instanceof PlayerEntity) {
@@ -199,12 +199,12 @@ public class BrokenMjolnirRightclickProcedure {
 								((World) world).playSound(null, new BlockPos(entity.getPosX(), entity.getPosY(), entity.getPosZ()),
 										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
 												.getValue(new ResourceLocation("champions_mod:mjonir_return")),
-										SoundCategory.NEUTRAL, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.5, 1)));
+										SoundCategory.MASTER, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.5, 1)));
 							} else {
 								((World) world).playSound((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()),
 										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
 												.getValue(new ResourceLocation("champions_mod:mjonir_return")),
-										SoundCategory.NEUTRAL, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.5, 1)), false);
+										SoundCategory.MASTER, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.5, 1)), false);
 							}
 						}
 						{
@@ -261,12 +261,12 @@ public class BrokenMjolnirRightclickProcedure {
 					((World) world).playSound(null, new BlockPos(entity.getPosX(), entity.getPosY(), entity.getPosZ()),
 							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
 									.getValue(new ResourceLocation("champions_mod:mjolnir_shard_throw")),
-							SoundCategory.NEUTRAL, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.75, 1)));
+							SoundCategory.MASTER, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.75, 1)));
 				} else {
 					((World) world).playSound((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()),
 							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
 									.getValue(new ResourceLocation("champions_mod:mjolnir_shard_throw")),
-							SoundCategory.NEUTRAL, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.75, 1)), false);
+							SoundCategory.MASTER, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.75, 1)), false);
 				}
 				for (int index0 = 0; index0 < (int) (7); index0++) {
 					new Object() {
@@ -377,12 +377,12 @@ public class BrokenMjolnirRightclickProcedure {
 								((World) world).playSound(null, new BlockPos(entity.getPosX(), entity.getPosY(), entity.getPosZ()),
 										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
 												.getValue(new ResourceLocation("champions_mod:mjolnir_shards_return")),
-										SoundCategory.NEUTRAL, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.75, 1)));
+										SoundCategory.MASTER, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.75, 1)));
 							} else {
 								((World) world).playSound((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()),
 										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
 												.getValue(new ResourceLocation("champions_mod:mjolnir_shards_return")),
-										SoundCategory.NEUTRAL, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.75, 1)), false);
+										SoundCategory.MASTER, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.75, 1)), false);
 							}
 						} else if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
 								.getItem() == Blocks.AIR.asItem()) {
@@ -397,12 +397,12 @@ public class BrokenMjolnirRightclickProcedure {
 								((World) world).playSound(null, new BlockPos(entity.getPosX(), entity.getPosY(), entity.getPosZ()),
 										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
 												.getValue(new ResourceLocation("champions_mod:mjolnir_shards_return")),
-										SoundCategory.NEUTRAL, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.75, 1)));
+										SoundCategory.MASTER, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.75, 1)));
 							} else {
 								((World) world).playSound((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()),
 										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
 												.getValue(new ResourceLocation("champions_mod:mjolnir_shards_return")),
-										SoundCategory.NEUTRAL, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.75, 1)), false);
+										SoundCategory.MASTER, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.75, 1)), false);
 							}
 						} else {
 							if (entity instanceof PlayerEntity) {
@@ -414,12 +414,12 @@ public class BrokenMjolnirRightclickProcedure {
 								((World) world).playSound(null, new BlockPos(entity.getPosX(), entity.getPosY(), entity.getPosZ()),
 										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
 												.getValue(new ResourceLocation("champions_mod:mjolnir_shards_return")),
-										SoundCategory.NEUTRAL, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.75, 1)));
+										SoundCategory.MASTER, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.75, 1)));
 							} else {
 								((World) world).playSound((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()),
 										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
 												.getValue(new ResourceLocation("champions_mod:mjolnir_shards_return")),
-										SoundCategory.NEUTRAL, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.75, 1)), false);
+										SoundCategory.MASTER, (float) 1.5, (float) (MathHelper.nextDouble(new Random(), 0.75, 1)), false);
 							}
 						}
 						{

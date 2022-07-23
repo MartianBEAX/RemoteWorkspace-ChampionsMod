@@ -7,7 +7,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "broken_mjolnir_projectile",
-      "path": "~/Avengers/Thor/Mjolnir"
+      "path": "~/Avengers/Thor/Broken Mjolnir"
     },
     {
       "name": "ThorEffectStart",
@@ -24,7 +24,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Thor/Mjolnir"
+      "path": "~/Avengers/Thor"
     },
     {
       "name": "Thor",
@@ -54,7 +54,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Thor/Mjolnir"
+      "path": "~/Avengers/Thor"
     },
     {
       "name": "BrokenMjolnirRightclick",
@@ -75,7 +75,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Thor/Mjolnir"
+      "path": "~/Avengers/Thor/Broken Mjolnir"
     },
     {
       "name": "BrokenMjolnirInInventory",
@@ -100,7 +100,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Thor/Mjolnir"
+      "path": "~/Avengers/Thor/Broken Mjolnir"
     },
     {
       "name": "BrokenMjolnirProjectileTick",
@@ -121,7 +121,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Thor/Mjolnir"
+      "path": "~/Avengers/Thor/Broken Mjolnir"
     },
     {
       "name": "BrokenMjolnirProjectileHit",
@@ -150,7 +150,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Thor/Mjolnir"
+      "path": "~/Avengers/Thor/Broken Mjolnir"
     },
     {
       "name": "BrokenMjolnirEntityIsHit",
@@ -175,7 +175,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Thor/Mjolnir"
+      "path": "~/Avengers/Thor/Broken Mjolnir"
     },
     {
       "name": "BrokenMjolnir",
@@ -184,7 +184,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "broken_mjolnir",
-      "path": "~/Avengers/Thor/Mjolnir"
+      "path": "~/Avengers/Thor/Broken Mjolnir"
     },
     {
       "name": "MjolnirShardProjectileTick",
@@ -205,7 +205,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Thor/Mjolnir"
+      "path": "~/Avengers/Thor/Broken Mjolnir"
     },
     {
       "name": "BlackWidowsArmor",
@@ -306,7 +306,7 @@
       "compiles": true,
       "locked_code": true,
       "registry_name": "mjolnir_shard",
-      "path": "~/Avengers/Thor/Mjolnir"
+      "path": "~/Avengers/Thor/Broken Mjolnir"
     },
     {
       "name": "MjolnirShardHits",
@@ -335,7 +335,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Thor/Mjolnir"
+      "path": "~/Avengers/Thor/Broken Mjolnir"
     },
     {
       "name": "StormBreaker",
@@ -344,25 +344,137 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "storm_breaker",
-      "path": "~/Avengers/Thor"
+      "path": "~/Avengers/Thor/StormBreaker"
+    },
+    {
+      "name": "StormBreakerProjectile",
+      "type": "rangeditem",
+      "sortid": 30,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "storm_breaker_projectile",
+      "path": "~/Avengers/Thor/StormBreaker"
+    },
+    {
+      "name": "StormBreakerProjectileTick",
+      "type": "procedure",
+      "sortid": 31,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "storm_breaker_projectile_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Avengers/Thor/StormBreaker"
+    },
+    {
+      "name": "StormBreakerRightclick",
+      "type": "procedure",
+      "sortid": 32,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "storm_breaker_rightclick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Avengers/Thor/StormBreaker"
+    },
+    {
+      "name": "StormBreakerProjectileHits",
+      "type": "procedure",
+      "sortid": 33,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "storm_breaker_projectile_hits",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Avengers/Thor/StormBreaker"
     }
   ],
   "variable_elements": [],
   "sound_elements": [
     {
-      "name": "mjolnir_throw",
+      "name": "storm_breaker_throw",
       "files": [
-        "mjolnir_throw"
+        "storm_breaker_throw"
       ],
-      "category": "neutral",
-      "subtitle": "Mjolnir"
+      "category": "master",
+      "subtitle": "Storm Breaker Thrown"
+    },
+    {
+      "name": "mjolnir_shards_return",
+      "files": [
+        "mjonir_shards_return"
+      ],
+      "category": "master",
+      "subtitle": "Mjolnir Shards Return"
+    },
+    {
+      "name": "mjolnir_shard_throw",
+      "files": [
+        "mjonir_shard_throw"
+      ],
+      "category": "master",
+      "subtitle": "Mjolnir Shard Thrown"
+    },
+    {
+      "name": "storm_breaker_return",
+      "files": [
+        "storm_breaker_return"
+      ],
+      "category": "master",
+      "subtitle": "Storm Breaker Return"
     },
     {
       "name": "mjonir_return",
       "files": [
         "mjonir_return"
       ],
-      "category": "neutral",
+      "category": "master",
+      "subtitle": "Mjolnir"
+    },
+    {
+      "name": "mjolnir_throw",
+      "files": [
+        "mjolnir_throw"
+      ],
+      "category": "master",
       "subtitle": "Mjolnir"
     },
     {
@@ -370,40 +482,27 @@
       "files": [
         "1911-.45-acp-close-single-gunshot-b-www.fesliyanstudios.com"
       ],
-      "category": "neutral",
-      "subtitle": ""
-    },
-    {
-      "name": "mjolnir_shard_throw",
-      "files": [
-        "mjonir_shard_throw"
-      ],
-      "category": "neutral",
-      "subtitle": "Mjolnir Shard Thrown"
-    },
-    {
-      "name": "mjolnir_shards_return",
-      "files": [
-        "mjonir_shards_return"
-      ],
-      "category": "neutral",
-      "subtitle": "Mjolnir Shards Return"
+      "category": "master",
+      "subtitle": "Shot Fired"
     }
   ],
   "language_map": {
     "en_us": {
+      "subtitles.storm_breaker_return": "Storm Breaker Return",
       "item.champions_mod.gun": "Gun",
       "item.champions_mod.storm_breaker": "Stormbreaker",
       "effect.thor": "God Of Thunder",
       "subtitles.mjolnir_shard_throw": "Mjolnir Shard Thrown",
-      "subtitles.mjolnir_throw": "Mjolnir is Thrown",
+      "subtitles.storm_breaker_throw": "Storm Breaker Thrown",
+      "subtitles.mjolnir_throw": "Mjolnir",
       "item.champions_mod.black_widows_armor_helmet": "BlackWidows Helmet",
       "subtitles.mjolnir_shards_return": "Mjolnir Shards Return",
       "item.champions_mod.mjolnir_shard": "Mjolnir Shard",
+      "item.champions_mod.storm_breaker_projectile": "Storm Breaker Projectile",
       "item.champions_mod.broken_mjolnir": "Broken Mjolnir",
       "item.champions_mod.black_widows_armor_chestplate": "Black Widow\u0027s Chestplate",
       "item.champions_mod.black_widows_armor_boots": "Black Widow\u0027s Boots",
-      "subtitles.mjonir_return": "Mjolnir Returns",
+      "subtitles.mjonir_return": "Mjolnir",
       "subtitles.shot": "Shot Fired",
       "item.champions_mod.black_widows_armor_leggings": "Black Widow\u0027s Leggings",
       "item.champions_mod.broken_mjolnir_projectile": "Broken Mjolnir",
@@ -433,7 +532,11 @@
             "name": "Thor",
             "children": [
               {
-                "name": "Mjolnir",
+                "name": "Broken Mjolnir",
+                "children": []
+              },
+              {
+                "name": "StormBreaker",
                 "children": []
               }
             ]

@@ -46,15 +46,19 @@ public class ChampionsModModElements {
 	public static Map<ResourceLocation, net.minecraft.util.SoundEvent> sounds = new HashMap<>();
 
 	public ChampionsModModElements() {
-		sounds.put(new ResourceLocation("champions_mod", "mjolnir_throw"),
-				new net.minecraft.util.SoundEvent(new ResourceLocation("champions_mod", "mjolnir_throw")));
-		sounds.put(new ResourceLocation("champions_mod", "mjonir_return"),
-				new net.minecraft.util.SoundEvent(new ResourceLocation("champions_mod", "mjonir_return")));
-		sounds.put(new ResourceLocation("champions_mod", "shot"), new net.minecraft.util.SoundEvent(new ResourceLocation("champions_mod", "shot")));
-		sounds.put(new ResourceLocation("champions_mod", "mjolnir_shard_throw"),
-				new net.minecraft.util.SoundEvent(new ResourceLocation("champions_mod", "mjolnir_shard_throw")));
+		sounds.put(new ResourceLocation("champions_mod", "storm_breaker_throw"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("champions_mod", "storm_breaker_throw")));
 		sounds.put(new ResourceLocation("champions_mod", "mjolnir_shards_return"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("champions_mod", "mjolnir_shards_return")));
+		sounds.put(new ResourceLocation("champions_mod", "mjolnir_shard_throw"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("champions_mod", "mjolnir_shard_throw")));
+		sounds.put(new ResourceLocation("champions_mod", "storm_breaker_return"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("champions_mod", "storm_breaker_return")));
+		sounds.put(new ResourceLocation("champions_mod", "mjonir_return"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("champions_mod", "mjonir_return")));
+		sounds.put(new ResourceLocation("champions_mod", "mjolnir_throw"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("champions_mod", "mjolnir_throw")));
+		sounds.put(new ResourceLocation("champions_mod", "shot"), new net.minecraft.util.SoundEvent(new ResourceLocation("champions_mod", "shot")));
 		try {
 			ModFileScanData modFileInfo = ModList.get().getModFileById("champions_mod").getFile().getScanResult();
 			Set<ModFileScanData.AnnotationData> annotations = modFileInfo.getAnnotations();
