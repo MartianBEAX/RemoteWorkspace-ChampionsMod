@@ -13,6 +13,8 @@ import net.minecraft.world.World;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.EntityRayTraceResult;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Hand;
@@ -21,7 +23,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.network.IPacket;
 import net.minecraft.item.UseAction;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -34,6 +35,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.client.util.ITooltipFlag;
 
 import net.mcreator.championsmod.procedures.MjolnirShardProjectileTickProcedure;
+import net.mcreator.championsmod.procedures.MjolnirShardHitsProcedure;
 import net.mcreator.championsmod.entity.renderer.MjolnirShardRenderer;
 import net.mcreator.championsmod.ChampionsModModElements;
 
@@ -53,7 +55,7 @@ public class MjolnirShardItem extends ChampionsModModElements.ModElement {
 			.size(0.5f, 0.5f)).build("projectile_mjolnir_shard").setRegistryName("projectile_mjolnir_shard");
 
 	public MjolnirShardItem(ChampionsModModElements instance) {
-		super(instance, 20);
+		super(instance, 27);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new MjolnirShardRenderer.ModelRegisterHandler());
 	}
 
@@ -65,7 +67,7 @@ public class MjolnirShardItem extends ChampionsModModElements.ModElement {
 
 	public static class ItemRanged extends Item {
 		public ItemRanged() {
-			super(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(64));
+			super(new Item.Properties().group(null).maxStackSize(64));
 			setRegistryName("mjolnir_shard");
 		}
 
@@ -78,7 +80,7 @@ public class MjolnirShardItem extends ChampionsModModElements.ModElement {
 		@Override
 		public void addInformation(ItemStack itemstack, World world, List<ITextComponent> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("Once a part of a legendary weapon."));
+			list.add(new StringTextComponent("Once a piece of something greater."));
 		}
 
 		@Override
@@ -105,7 +107,7 @@ public class MjolnirShardItem extends ChampionsModModElements.ModElement {
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
 				if (true) {
-					ArrowCustomEntity entityarrow = shoot(world, entity, random, 1f, 3, 3);
+					ArrowCustomEntity entityarrow = shoot(world, entity, random, 1.4f, 3.9999999999999996, 2);
 					itemstack.damageItem(1, entity, e -> e.sendBreakAnimation(entity.getActiveHand()));
 					entityarrow.pickupStatus = AbstractArrowEntity.PickupStatus.DISALLOWED;
 				}
@@ -154,6 +156,39 @@ public class MjolnirShardItem extends ChampionsModModElements.ModElement {
 		}
 
 		@Override
+		public void onEntityHit(EntityRayTraceResult entityRayTraceResult) {
+			super.onEntityHit(entityRayTraceResult);
+			Entity entity = entityRayTraceResult.getEntity();
+			Entity sourceentity = this.func_234616_v_();
+			Entity immediatesourceentity = this;
+			double x = this.getPosX();
+			double y = this.getPosY();
+			double z = this.getPosZ();
+			World world = this.world;
+
+			MjolnirShardHitsProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+		}
+
+		@Override
+		public void func_230299_a_(BlockRayTraceResult blockRayTraceResult) {
+			super.func_230299_a_(blockRayTraceResult);
+			double x = blockRayTraceResult.getPos().getX();
+			double y = blockRayTraceResult.getPos().getY();
+			double z = blockRayTraceResult.getPos().getZ();
+			World world = this.world;
+			Entity entity = this.func_234616_v_();
+			Entity immediatesourceentity = this;
+
+			MjolnirShardHitsProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+		}
+
+		@Override
 		public void tick() {
 			super.tick();
 			double x = this.getPosX();
@@ -167,6 +202,11 @@ public class MjolnirShardItem extends ChampionsModModElements.ModElement {
 					.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			if (this.inGround) {
+
+				MjolnirShardHitsProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				this.remove();
 			}
 		}
@@ -174,7 +214,7 @@ public class MjolnirShardItem extends ChampionsModModElements.ModElement {
 
 	public static ArrowCustomEntity shoot(World world, LivingEntity entity, Random random, float power, double damage, int knockback) {
 		ArrowCustomEntity entityarrow = new ArrowCustomEntity(arrow, entity, world);
-		entityarrow.shoot(entity.getLook(1).x, entity.getLook(1).y, entity.getLook(1).z, power * 2, 0);
+		entityarrow.shoot(entity.getLookVec().x + (Math.random() * 0.08), entity.getLook(1).y + (Math.random() * 0.06), entity.getLookVec().z + (Math.random() * 0.08), power * 2, 0);
 		entityarrow.setSilent(true);
 		entityarrow.setIsCritical(true);
 		entityarrow.setDamage(damage);
@@ -184,8 +224,8 @@ public class MjolnirShardItem extends ChampionsModModElements.ModElement {
 		double y = entity.getPosY();
 		double z = entity.getPosZ();
 		world.playSound((PlayerEntity) null, (double) x, (double) y, (double) z,
-				(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("champions_mod:mjolnir_throw")),
-				SoundCategory.PLAYERS, 1, 1f / (random.nextFloat() * 0.5f + 1) + (power / 2));
+				(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("")), SoundCategory.PLAYERS, 1,
+				1f / (random.nextFloat() * 0.5f + 1) + (power / 2));
 		return entityarrow;
 	}
 
@@ -194,18 +234,18 @@ public class MjolnirShardItem extends ChampionsModModElements.ModElement {
 		double d0 = target.getPosY() + (double) target.getEyeHeight() - 1.1;
 		double d1 = target.getPosX() - entity.getPosX();
 		double d3 = target.getPosZ() - entity.getPosZ();
-		entityarrow.shoot(d1, d0 - entityarrow.getPosY() + (double) MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F, d3, 1f * 2, 12.0F);
+		entityarrow.shoot(d1, d0 - entityarrow.getPosY() + (double) MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F, d3, 1.4f * 2, 12.0F);
 		entityarrow.setSilent(true);
-		entityarrow.setDamage(3);
-		entityarrow.setKnockbackStrength(3);
+		entityarrow.setDamage(3.9999999999999996);
+		entityarrow.setKnockbackStrength(2);
 		entityarrow.setIsCritical(true);
 		entity.world.addEntity(entityarrow);
 		double x = entity.getPosX();
 		double y = entity.getPosY();
 		double z = entity.getPosZ();
 		entity.world.playSound((PlayerEntity) null, (double) x, (double) y, (double) z,
-				(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("champions_mod:mjolnir_throw")),
-				SoundCategory.PLAYERS, 1, 1f / (new Random().nextFloat() * 0.5f + 1));
+				(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("")), SoundCategory.PLAYERS, 1,
+				1f / (new Random().nextFloat() * 0.5f + 1));
 		return entityarrow;
 	}
 }

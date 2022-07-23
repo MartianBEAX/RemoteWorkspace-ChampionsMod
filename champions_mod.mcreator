@@ -187,15 +187,6 @@
       "path": "~/Avengers/Thor"
     },
     {
-      "name": "MjolnirShard",
-      "type": "rangeditem",
-      "sortid": 20,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "mjolnir_shard",
-      "path": "~/Avengers/Thor"
-    },
-    {
       "name": "MjolnirShardProjectileTick",
       "type": "procedure",
       "sortid": 21,
@@ -307,6 +298,44 @@
       "locked_code": false,
       "registry_name": "gun",
       "path": "~/Avengers/Black Widow"
+    },
+    {
+      "name": "MjolnirShard",
+      "type": "rangeditem",
+      "sortid": 27,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "mjolnir_shard",
+      "path": "~/Avengers/Thor"
+    },
+    {
+      "name": "MjolnirShardHits",
+      "type": "procedure",
+      "sortid": 28,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mjolnir_shard_hits",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Avengers/Thor"
     }
   ],
   "variable_elements": [],
@@ -334,20 +363,38 @@
       ],
       "category": "neutral",
       "subtitle": ""
+    },
+    {
+      "name": "mjolnir_shard_throw",
+      "files": [
+        "mjonir_shard_throw"
+      ],
+      "category": "neutral",
+      "subtitle": "Mjolnir Shard Thrown"
+    },
+    {
+      "name": "mjolnir_shards_return",
+      "files": [
+        "mjonir_shards_return"
+      ],
+      "category": "neutral",
+      "subtitle": "Mjolnir Shards Return"
     }
   ],
   "language_map": {
     "en_us": {
       "item.champions_mod.gun": "Gun",
       "effect.thor": "God Of Thunder",
+      "subtitles.mjolnir_shard_throw": "Mjolnir Shard Thrown",
       "subtitles.mjolnir_throw": "Mjolnir is Thrown",
       "item.champions_mod.black_widows_armor_helmet": "BlackWidows Helmet",
+      "subtitles.mjolnir_shards_return": "Mjolnir Shards Return",
       "item.champions_mod.mjolnir_shard": "Mjolnir Shard",
       "item.champions_mod.broken_mjolnir": "Broken Mjolnir",
       "item.champions_mod.black_widows_armor_chestplate": "Black Widow\u0027s Chestplate",
       "item.champions_mod.black_widows_armor_boots": "Black Widow\u0027s Boots",
       "subtitles.mjonir_return": "Mjolnir Returns",
-      "subtitles.shot": "",
+      "subtitles.shot": "Shot Fired",
       "item.champions_mod.black_widows_armor_leggings": "Black Widow\u0027s Leggings",
       "item.champions_mod.broken_mjolnir_projectile": "Broken Mjolnir",
       "item.champions_mod.bullet": "Bullet"

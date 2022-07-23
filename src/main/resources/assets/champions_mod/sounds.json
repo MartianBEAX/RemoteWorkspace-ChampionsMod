@@ -27,5 +27,25 @@
         "stream": false
       }
     ]
+  },
+  "mjolnir_shard_throw": {
+    "category": "neutral",
+    "subtitle": "subtitles.mjolnir_shard_throw",
+    "sounds": [
+      {
+        "name": "champions_mod:mjonir_shard_throw",
+        "stream": false
+      }
+    ]
+  },
+  "mjolnir_shards_return": {
+    "category": "neutral",
+    "subtitle": "subtitles.mjolnir_shards_return",
+    "sounds": [
+      {
+        "name": "champions_mod:mjonir_shards_return",
+        "stream": false
+      }
+    ]
   }
 }

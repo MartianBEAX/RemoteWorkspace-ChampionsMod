@@ -4,13 +4,13 @@
   "definition": {
     "renderType": 1,
     "texture": "mjolnirshardicon",
-    "customModelName": "mjolnirshard:default",
+    "customModelName": "mjolnir_shard:default",
     "name": "Mjolnir Shard",
     "specialInfo": [
-      "Once a part of a legendary weapon."
+      "Once a piece of something greater."
     ],
     "creativeTab": {
-      "value": "COMBAT"
+      "value": "No creative tab entry"
     },
     "stackSize": 64,
     "ammoItem": {
@@ -19,15 +19,15 @@
     "shootConstantly": false,
     "usageCount": 0,
     "actionSound": {
-      "value": "CUSTOM:mjolnir_throw"
+      "value": ""
     },
     "hasGlow": true,
     "animation": "bow",
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
-    "bulletPower": 1.0,
-    "bulletDamage": 3.0,
-    "bulletKnockback": 3,
+    "bulletPower": 1.4,
+    "bulletDamage": 3.9999999999999996,
+    "bulletKnockback": 2,
     "bulletParticles": true,
     "bulletIgnitesFire": false,
     "bulletItemTexture": {
@@ -35,6 +35,12 @@
     },
     "bulletModel": "Default",
     "customBulletModelTexture": "",
+    "onBulletHitsBlock": {
+      "name": "MjolnirShardHits"
+    },
+    "onBulletHitsEntity": {
+      "name": "MjolnirShardHits"
+    },
     "onBulletFlyingTick": {
       "name": "MjolnirShardProjectileTick"
     }

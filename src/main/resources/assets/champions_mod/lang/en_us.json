@@ -1,14 +1,16 @@
 {
   "item.champions_mod.gun": "Gun",
   "effect.thor": "God Of Thunder",
+  "subtitles.mjolnir_shard_throw": "Mjolnir Shard Thrown",
   "subtitles.mjolnir_throw": "Mjolnir is Thrown",
   "item.champions_mod.black_widows_armor_helmet": "BlackWidows Helmet",
+  "subtitles.mjolnir_shards_return": "Mjolnir Shards Return",
   "item.champions_mod.mjolnir_shard": "Mjolnir Shard",
   "item.champions_mod.broken_mjolnir": "Broken Mjolnir",
   "item.champions_mod.black_widows_armor_chestplate": "Black Widow\u0027s Chestplate",
   "item.champions_mod.black_widows_armor_boots": "Black Widow\u0027s Boots",
   "subtitles.mjonir_return": "Mjolnir Returns",
-  "subtitles.shot": "",
+  "subtitles.shot": "Shot Fired",
   "item.champions_mod.black_widows_armor_leggings": "Black Widow\u0027s Leggings",
   "item.champions_mod.broken_mjolnir_projectile": "Broken Mjolnir",
   "item.champions_mod.bullet": "Bullet"

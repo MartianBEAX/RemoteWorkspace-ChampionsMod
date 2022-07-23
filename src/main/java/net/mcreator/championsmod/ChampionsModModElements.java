@@ -51,6 +51,10 @@ public class ChampionsModModElements {
 		sounds.put(new ResourceLocation("champions_mod", "mjonir_return"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("champions_mod", "mjonir_return")));
 		sounds.put(new ResourceLocation("champions_mod", "shot"), new net.minecraft.util.SoundEvent(new ResourceLocation("champions_mod", "shot")));
+		sounds.put(new ResourceLocation("champions_mod", "mjolnir_shard_throw"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("champions_mod", "mjolnir_shard_throw")));
+		sounds.put(new ResourceLocation("champions_mod", "mjolnir_shards_return"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("champions_mod", "mjolnir_shards_return")));
 		try {
 			ModFileScanData modFileInfo = ModList.get().getModFileById("champions_mod").getFile().getScanResult();
 			Set<ModFileScanData.AnnotationData> annotations = modFileInfo.getAnnotations();
