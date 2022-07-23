@@ -1,0 +1,7 @@
+{
+  "parent": "champions_mod:custom/stormbreaker",
+  "textures": {
+    "0": "champions_mod:blocks/stormbreaker",
+    "particle": "champions_mod:items/mjolniricon"
+  }
+}

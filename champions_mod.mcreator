@@ -7,7 +7,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "broken_mjolnir_projectile",
-      "path": "~/Avengers/Thor"
+      "path": "~/Avengers/Thor/Mjolnir"
     },
     {
       "name": "ThorEffectStart",
@@ -24,7 +24,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Thor"
+      "path": "~/Avengers/Thor/Mjolnir"
     },
     {
       "name": "Thor",
@@ -54,7 +54,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Thor"
+      "path": "~/Avengers/Thor/Mjolnir"
     },
     {
       "name": "BrokenMjolnirRightclick",
@@ -75,7 +75,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Thor"
+      "path": "~/Avengers/Thor/Mjolnir"
     },
     {
       "name": "BrokenMjolnirInInventory",
@@ -100,7 +100,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Thor"
+      "path": "~/Avengers/Thor/Mjolnir"
     },
     {
       "name": "BrokenMjolnirProjectileTick",
@@ -121,7 +121,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Thor"
+      "path": "~/Avengers/Thor/Mjolnir"
     },
     {
       "name": "BrokenMjolnirProjectileHit",
@@ -150,7 +150,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Thor"
+      "path": "~/Avengers/Thor/Mjolnir"
     },
     {
       "name": "BrokenMjolnirEntityIsHit",
@@ -175,7 +175,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Thor"
+      "path": "~/Avengers/Thor/Mjolnir"
     },
     {
       "name": "BrokenMjolnir",
@@ -184,7 +184,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "broken_mjolnir",
-      "path": "~/Avengers/Thor"
+      "path": "~/Avengers/Thor/Mjolnir"
     },
     {
       "name": "MjolnirShardProjectileTick",
@@ -205,7 +205,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Thor"
+      "path": "~/Avengers/Thor/Mjolnir"
     },
     {
       "name": "BlackWidowsArmor",
@@ -220,7 +220,7 @@
         "eb": true,
         "ec": true
       },
-      "path": "~/Avengers/Black Widow"
+      "path": "~/Avengers/Black Widow/Armor and Buffs"
     },
     {
       "name": "BlackWidowsArmorBodyTickEvent",
@@ -237,7 +237,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Black Widow"
+      "path": "~/Avengers/Black Widow/Armor and Buffs"
     },
     {
       "name": "Bullet",
@@ -246,7 +246,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "bullet",
-      "path": "~/Avengers/Black Widow"
+      "path": "~/Avengers/Black Widow/Gun"
     },
     {
       "name": "BulletTick",
@@ -267,7 +267,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Black Widow"
+      "path": "~/Avengers/Black Widow/Gun"
     },
     {
       "name": "GunRightclicked",
@@ -288,7 +288,7 @@
           }
         ]
       },
-      "path": "~/Avengers/Black Widow"
+      "path": "~/Avengers/Black Widow/Gun"
     },
     {
       "name": "Gun",
@@ -297,7 +297,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "gun",
-      "path": "~/Avengers/Black Widow"
+      "path": "~/Avengers/Black Widow/Gun"
     },
     {
       "name": "MjolnirShard",
@@ -306,7 +306,7 @@
       "compiles": true,
       "locked_code": true,
       "registry_name": "mjolnir_shard",
-      "path": "~/Avengers/Thor"
+      "path": "~/Avengers/Thor/Mjolnir"
     },
     {
       "name": "MjolnirShardHits",
@@ -335,6 +335,15 @@
           }
         ]
       },
+      "path": "~/Avengers/Thor/Mjolnir"
+    },
+    {
+      "name": "StormBreaker",
+      "type": "tool",
+      "sortid": 29,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "storm_breaker",
       "path": "~/Avengers/Thor"
     }
   ],
@@ -384,6 +393,7 @@
   "language_map": {
     "en_us": {
       "item.champions_mod.gun": "Gun",
+      "item.champions_mod.storm_breaker": "Stormbreaker",
       "effect.thor": "God Of Thunder",
       "subtitles.mjolnir_shard_throw": "Mjolnir Shard Thrown",
       "subtitles.mjolnir_throw": "Mjolnir is Thrown",
@@ -408,11 +418,25 @@
         "children": [
           {
             "name": "Black Widow",
-            "children": []
+            "children": [
+              {
+                "name": "Gun",
+                "children": []
+              },
+              {
+                "name": "Armor and Buffs",
+                "children": []
+              }
+            ]
           },
           {
             "name": "Thor",
-            "children": []
+            "children": [
+              {
+                "name": "Mjolnir",
+                "children": []
+              }
+            ]
           }
         ]
       }
