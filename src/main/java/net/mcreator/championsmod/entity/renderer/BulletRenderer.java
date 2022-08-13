@@ -35,7 +35,7 @@ public class BulletRenderer {
 
 	@OnlyIn(Dist.CLIENT)
 	public static class CustomRender extends EntityRenderer<BulletItem.ArrowCustomEntity> {
-		private static final ResourceLocation texture = new ResourceLocation("champions_mod:textures/bullet.png");
+		private static final ResourceLocation texture = new ResourceLocation("champions_mod:textures/entities/bullet.png");
 
 		public CustomRender(EntityRendererManager renderManager) {
 			super(renderManager);

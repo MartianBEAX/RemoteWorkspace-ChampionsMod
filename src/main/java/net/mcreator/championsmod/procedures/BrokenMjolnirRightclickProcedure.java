@@ -19,6 +19,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Hand;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.item.ItemStack;
+import net.minecraft.entity.projectile.ProjectileEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
@@ -80,10 +82,25 @@ public class BrokenMjolnirRightclickProcedure {
 						((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 					}
 				}
-				if (entity instanceof LivingEntity) {
-					LivingEntity _ent = (LivingEntity) entity;
-					if (!_ent.world.isRemote()) {
-						BrokenMjolnirProjectileItem.shoot(_ent.world, _ent, new Random(), (float) 1.25, 8, 5);
+				{
+					Entity _shootFrom = entity;
+					World projectileLevel = _shootFrom.world;
+					if (!projectileLevel.isRemote()) {
+						ProjectileEntity _entityToSpawn = new Object() {
+							public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback) {
+								AbstractArrowEntity entityToSpawn = new BrokenMjolnirProjectileItem.ArrowCustomEntity(
+										BrokenMjolnirProjectileItem.arrow, world);
+								entityToSpawn.setShooter(shooter);
+								entityToSpawn.setDamage(damage);
+								entityToSpawn.setKnockbackStrength(knockback);
+								entityToSpawn.setSilent(true);
+
+								return entityToSpawn;
+							}
+						}.getArrow(projectileLevel, entity, 8, 5);
+						_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
+						_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, (float) 1.25, 0);
+						projectileLevel.addEntity(_entityToSpawn);
 					}
 				}
 				new Object() {
@@ -290,11 +307,25 @@ public class BrokenMjolnirRightclickProcedure {
 						}
 
 						private void run() {
-							if (entity instanceof LivingEntity) {
-								LivingEntity _ent = (LivingEntity) entity;
-								if (!_ent.world.isRemote()) {
-									MjolnirShardItem.shoot(_ent.world, _ent, new Random(), (float) MathHelper.nextDouble(new Random(), 1, 1.25), 3,
-											1);
+							{
+								Entity _shootFrom = entity;
+								World projectileLevel = _shootFrom.world;
+								if (!projectileLevel.isRemote()) {
+									ProjectileEntity _entityToSpawn = new Object() {
+										public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback) {
+											AbstractArrowEntity entityToSpawn = new MjolnirShardItem.ArrowCustomEntity(MjolnirShardItem.arrow, world);
+											entityToSpawn.setShooter(shooter);
+											entityToSpawn.setDamage(damage);
+											entityToSpawn.setKnockbackStrength(knockback);
+											entityToSpawn.setSilent(true);
+
+											return entityToSpawn;
+										}
+									}.getArrow(projectileLevel, entity, 3, 1);
+									_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
+									_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z,
+											(float) MathHelper.nextDouble(new Random(), 1, 1.25), 0);
+									projectileLevel.addEntity(_entityToSpawn);
 								}
 							}
 							MinecraftForge.EVENT_BUS.unregister(this);

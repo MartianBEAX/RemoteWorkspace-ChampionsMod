@@ -5,11 +5,14 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.Hand;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.item.ItemStack;
+import net.minecraft.entity.projectile.ProjectileEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
@@ -18,7 +21,6 @@ import net.mcreator.championsmod.item.GunItem;
 import net.mcreator.championsmod.item.BulletItem;
 import net.mcreator.championsmod.ChampionsModMod;
 
-import java.util.Random;
 import java.util.Map;
 
 public class GunRightclickedProcedure {
@@ -54,10 +56,24 @@ public class GunRightclickedProcedure {
 								RayTraceContext.BlockMode.VISUAL, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
 						(int) 5, 0.1, 0.1, 0.1, 0);
 			}
-			if (entity instanceof LivingEntity) {
-				LivingEntity _ent = (LivingEntity) entity;
-				if (!_ent.world.isRemote()) {
-					BulletItem.shoot(_ent.world, _ent, new Random(), (float) 1.75, 5, 1);
+			{
+				Entity _shootFrom = entity;
+				World projectileLevel = _shootFrom.world;
+				if (!projectileLevel.isRemote()) {
+					ProjectileEntity _entityToSpawn = new Object() {
+						public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback) {
+							AbstractArrowEntity entityToSpawn = new BulletItem.ArrowCustomEntity(BulletItem.arrow, world);
+							entityToSpawn.setShooter(shooter);
+							entityToSpawn.setDamage(damage);
+							entityToSpawn.setKnockbackStrength(knockback);
+							entityToSpawn.setSilent(true);
+
+							return entityToSpawn;
+						}
+					}.getArrow(projectileLevel, entity, 5, 1);
+					_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
+					_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, (float) 1.75, 0);
+					projectileLevel.addEntity(_entityToSpawn);
 				}
 			}
 			if (entity instanceof PlayerEntity)
@@ -108,10 +124,25 @@ public class GunRightclickedProcedure {
 											RayTraceContext.BlockMode.VISUAL, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
 									(int) 5, 0.1, 0.1, 0.1, 0);
 						}
-						if (entity instanceof LivingEntity) {
-							LivingEntity _ent = (LivingEntity) entity;
-							if (!_ent.world.isRemote()) {
-								BulletItem.shoot(_ent.world, _ent, new Random(), (float) 1.75, 5, 1);
+						{
+							Entity _shootFrom = entity;
+							World projectileLevel = _shootFrom.world;
+							if (!projectileLevel.isRemote()) {
+								ProjectileEntity _entityToSpawn = new Object() {
+									public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback) {
+										AbstractArrowEntity entityToSpawn = new BulletItem.ArrowCustomEntity(BulletItem.arrow, world);
+										entityToSpawn.setShooter(shooter);
+										entityToSpawn.setDamage(damage);
+										entityToSpawn.setKnockbackStrength(knockback);
+										entityToSpawn.setSilent(true);
+
+										return entityToSpawn;
+									}
+								}.getArrow(projectileLevel, entity, 5, 1);
+								_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
+								_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, (float) 1.75,
+										0);
+								projectileLevel.addEntity(_entityToSpawn);
 							}
 						}
 					}
@@ -136,10 +167,24 @@ public class GunRightclickedProcedure {
 									RayTraceContext.BlockMode.VISUAL, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
 							(int) 5, 0.1, 0.1, 0.1, 0);
 				}
-				if (entity instanceof LivingEntity) {
-					LivingEntity _ent = (LivingEntity) entity;
-					if (!_ent.world.isRemote()) {
-						BulletItem.shoot(_ent.world, _ent, new Random(), (float) 1.75, 5, 1);
+				{
+					Entity _shootFrom = entity;
+					World projectileLevel = _shootFrom.world;
+					if (!projectileLevel.isRemote()) {
+						ProjectileEntity _entityToSpawn = new Object() {
+							public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback) {
+								AbstractArrowEntity entityToSpawn = new BulletItem.ArrowCustomEntity(BulletItem.arrow, world);
+								entityToSpawn.setShooter(shooter);
+								entityToSpawn.setDamage(damage);
+								entityToSpawn.setKnockbackStrength(knockback);
+								entityToSpawn.setSilent(true);
+
+								return entityToSpawn;
+							}
+						}.getArrow(projectileLevel, entity, 5, 1);
+						_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
+						_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, (float) 1.75, 0);
+						projectileLevel.addEntity(_entityToSpawn);
 					}
 				}
 				if (entity instanceof PlayerEntity)
@@ -163,10 +208,24 @@ public class GunRightclickedProcedure {
 									RayTraceContext.BlockMode.VISUAL, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ()),
 							(int) 5, 0.1, 0.1, 0.1, 0);
 				}
-				if (entity instanceof LivingEntity) {
-					LivingEntity _ent = (LivingEntity) entity;
-					if (!_ent.world.isRemote()) {
-						BulletItem.shoot(_ent.world, _ent, new Random(), (float) 1.75, 5, 1);
+				{
+					Entity _shootFrom = entity;
+					World projectileLevel = _shootFrom.world;
+					if (!projectileLevel.isRemote()) {
+						ProjectileEntity _entityToSpawn = new Object() {
+							public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback) {
+								AbstractArrowEntity entityToSpawn = new BulletItem.ArrowCustomEntity(BulletItem.arrow, world);
+								entityToSpawn.setShooter(shooter);
+								entityToSpawn.setDamage(damage);
+								entityToSpawn.setKnockbackStrength(knockback);
+								entityToSpawn.setSilent(true);
+
+								return entityToSpawn;
+							}
+						}.getArrow(projectileLevel, entity, 5, 1);
+						_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
+						_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, (float) 1.75, 0);
+						projectileLevel.addEntity(_entityToSpawn);
 					}
 				}
 				if (entity instanceof PlayerEntity)

@@ -35,7 +35,7 @@ public class StormBreakerProjectileRenderer {
 
 	@OnlyIn(Dist.CLIENT)
 	public static class CustomRender extends EntityRenderer<StormBreakerProjectileItem.ArrowCustomEntity> {
-		private static final ResourceLocation texture = new ResourceLocation("champions_mod:textures/stormbreaker_projectile.png");
+		private static final ResourceLocation texture = new ResourceLocation("champions_mod:textures/entities/stormbreaker_projectile.png");
 
 		public CustomRender(EntityRendererManager renderManager) {
 			super(renderManager);
